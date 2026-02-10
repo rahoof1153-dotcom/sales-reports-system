@@ -8,25 +8,36 @@ st.title("📊 Hypermarket Sales Report Dashboard")
 uploaded_file = st.file_uploader("Upload Sales Excel File", type=["xlsx"])
 
 if uploaded_file:
+
     df = pd.read_excel(uploaded_file)
+    df.columns = df.columns.str.strip()
 
     st.subheader("Raw Data")
     st.dataframe(df)
 
-    total_sales = df["Sales"].sum()
-    total_qty = df["Qty"].sum()
+    # auto detect sales column
+    sales_col = None
+    for col in df.columns:
+        if "sale" in col.lower():
+            sales_col = col
+            break
 
-    col1, col2 = st.columns(2)
+    if not sales_col:
+        st.error("Sales column not found in Excel")
+        st.stop()
 
-    col1.metric("Total Sales (OMR)", round(total_sales, 3))
-    col2.metric("Total Quantity", int(total_qty))
+    total_sales = df[sales_col].sum()
 
-    st.subheader("Sales by Category")
-    category_summary = df.groupby("Category")["Sales"].sum()
-    st.bar_chart(category_summary)
+    st.metric("Total Sales (OMR)", f"{total_sales:,.2f}")
 
-    st.subheader("Daily Sales Trend")
-    daily_summary = df.groupby("Date")["Sales"].sum()
-    st.line_chart(daily_summary)
+    st.subheader("Branch Wise Sales")
+    st.bar_chart(df.groupby("Branch")[sales_col].sum())
+
+    st.subheader("Category Wise Sales")
+    st.bar_chart(df.groupby("Category")[sales_col].sum())
+
+    if "Date" in df.columns:
+        st.subheader("Daily Trend")
+        st.line_chart(df.groupby("Date")[sales_col].sum())
 
     st.success("Report Generated Successfully ✅")
