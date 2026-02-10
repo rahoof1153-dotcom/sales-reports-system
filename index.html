@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.3">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;Sales Dashboard&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;script src="https://cdn.jsdelivr.net/npm/chart.js"&gt;&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"&gt;&lt;/script&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>body{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-family: Arial;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background:#f4f6f8;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:20px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>h1{text-align:center;}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.cards{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:flex;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap:20px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom:30px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.card{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>flex:1;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background:white;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:20px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius:10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-align:center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size:20px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight:bold;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>canvas{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background:white;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:20px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius:10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-top:20px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;h1&gt;📊 Hypermarket Sales Dashboard&lt;/h1&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;input type="file" id="excelFile" /&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;div class="cards"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="card"&gt;Total Sales: &lt;span id="total"&gt;0&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="card"&gt;Transactions: &lt;span id="count"&gt;0&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;canvas id="barChart"&gt;&lt;/canvas&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;script&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">document.getElementById('excelFile').addEventListener('change', function(e){</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>const reader = new FileReader();</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>reader.onload = function(event){</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const data = new Uint8Array(event.target.result);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const workbook = XLSX.read(data, {type:'array'});</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const sheet = workbook.Sheets[workbook.SheetNames[0]];</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const json = XLSX.utils.sheet_to_json(sheet);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>let total = 0;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let categories = {};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>json.forEach(row=&gt;{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let sale = Number(row.Sales || row.Amount || 0);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let cat = row.Category || "Other";</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>total += sale;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>if(!categories[cat]) categories[cat]=0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>categories[cat]+=sale;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById('total').innerText = total.toFixed(2);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById('count').innerText = json.length;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>const ctx = document.getElementById('barChart');</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>new Chart(ctx,{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>type:'bar',</p>
+<p class="p1"><span class="Apple-converted-space">      </span>data:{</p>
+<p class="p1"><span class="Apple-converted-space">        </span>labels:Object.keys(categories),</p>
+<p class="p1"><span class="Apple-converted-space">        </span>datasets:[{</p>
+<p class="p1"><span class="Apple-converted-space">          </span>label:'Sales by Category',</p>
+<p class="p1"><span class="Apple-converted-space">          </span>data:Object.values(categories)</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}]</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>reader.readAsArrayBuffer(e.target.files[0]);</p>
+<p class="p1">});</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;/script&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
