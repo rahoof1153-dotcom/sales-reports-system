@@ -1,17 +1,118 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
-<title>Sales Reports</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.3">
+  <style type="text/css">
+    span.s1 {font-kerning: none}
+  </style>
 </head>
-<body style="font-family:Arial;text-align:center;padding:40px">
-
-<h2>📊 Hypermarket Sales Report</h2>
-
-<a href="sample_hypermarket_sales.xlsx" download>
-<button style="padding:15px 25px;font-size:18px">
-Download Report
-</button>
-</a>
-
+<body>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b>&lt;!DOCTYPE html&gt;</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b>&lt;html&gt;</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b>&lt;head&gt;</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">  </span>&lt;title&gt;Sales Dashboard&lt;/title&gt;</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">  </span>&lt;script src="https://cdn.jsdelivr.net/npm/chart.js"&gt;&lt;/script&gt;</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">  </span>&lt;script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"&gt;&lt;/script&gt;</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000; min-height: 21.0px"><span class="s1"><b></b></span><br></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">  </span>&lt;style&gt;</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">    </span>body{</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">      </span>font-family: Arial;</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">      </span>background:#f4f6f8;</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">      </span>padding:20px;</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">    </span>}</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">    </span>h1{text-align:center;}</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000; min-height: 21.0px"><span class="s1"><b></b></span><br></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">    </span>.cards{</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">      </span>display:flex;</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">      </span>gap:20px;</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">      </span>margin-bottom:30px;</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">    </span>}</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000; min-height: 21.0px"><span class="s1"><b></b></span><br></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">    </span>.card{</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">      </span>flex:1;</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">      </span>background:white;</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">      </span>padding:20px;</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">      </span>border-radius:10px;</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">      </span>text-align:center;</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">      </span>font-size:20px;</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">      </span>font-weight:bold;</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">    </span>}</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000; min-height: 21.0px"><span class="s1"><b></b></span><br></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">    </span>canvas{</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">      </span>background:white;</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">      </span>padding:20px;</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">      </span>border-radius:10px;</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">      </span>margin-top:20px;</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">    </span>}</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">  </span>&lt;/style&gt;</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b>&lt;/head&gt;</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000; min-height: 21.0px"><span class="s1"><b></b></span><br></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b>&lt;body&gt;</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000; min-height: 21.0px"><span class="s1"><b></b></span><br></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b>&lt;h1&gt;📊 Hypermarket Sales Dashboard&lt;/h1&gt;</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000; min-height: 21.0px"><span class="s1"><b></b></span><br></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b>&lt;input type="file" id="excelFile" /&gt;</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000; min-height: 21.0px"><span class="s1"><b></b></span><br></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b>&lt;div class="cards"&gt;</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">  </span>&lt;div class="card"&gt;Total Sales: &lt;span id="total"&gt;0&lt;/span&gt;&lt;/div&gt;</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">  </span>&lt;div class="card"&gt;Transactions: &lt;span id="count"&gt;0&lt;/span&gt;&lt;/div&gt;</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b>&lt;/div&gt;</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000; min-height: 21.0px"><span class="s1"><b></b></span><br></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b>&lt;canvas id="barChart"&gt;&lt;/canvas&gt;</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000; min-height: 21.0px"><span class="s1"><b></b></span><br></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b>&lt;script&gt;</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000; min-height: 21.0px"><span class="s1"><b></b></span><br></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b>document.getElementById('excelFile').addEventListener('change', function(e){</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000; min-height: 21.0px"><span class="s1"><b></b></span><br></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">  </span>const reader = new FileReader();</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000; min-height: 21.0px"><span class="s1"><b></b></span><br></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">  </span>reader.onload = function(event){</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">    </span>const data = new Uint8Array(event.target.result);</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">    </span>const workbook = XLSX.read(data, {type:'array'});</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">    </span>const sheet = workbook.Sheets[workbook.SheetNames[0]];</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">    </span>const json = XLSX.utils.sheet_to_json(sheet);</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000; min-height: 21.0px"><span class="s1"><b></b></span><br></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">    </span>let total = 0;</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">    </span>let categories = {};</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000; min-height: 21.0px"><span class="s1"><b></b></span><br></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">    </span>json.forEach(row=&gt;{</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">      </span>let sale = Number(row.Sales || row.Amount || 0);</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">      </span>let cat = row.Category || "Other";</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000; min-height: 21.0px"><span class="s1"><b></b></span><br></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">      </span>total += sale;</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000; min-height: 21.0px"><span class="s1"><b></b></span><br></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">      </span>if(!categories[cat]) categories[cat]=0;</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">      </span>categories[cat]+=sale;</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">    </span>});</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000; min-height: 21.0px"><span class="s1"><b></b></span><br></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">    </span>document.getElementById('total').innerText = total.toFixed(2);</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">    </span>document.getElementById('count').innerText = json.length;</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000; min-height: 21.0px"><span class="s1"><b></b></span><br></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">    </span>const ctx = document.getElementById('barChart');</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000; min-height: 21.0px"><span class="s1"><b></b></span><br></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">    </span>new Chart(ctx,{</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">      </span>type:'bar',</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">      </span>data:{</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">        </span>labels:Object.keys(categories),</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">        </span>datasets:[{</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">          </span>label:'Sales by Category',</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">          </span>data:Object.values(categories)</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">        </span>}]</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">      </span>}</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">    </span>});</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000; min-height: 21.0px"><span class="s1"><b></b></span><br></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">  </span>};</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000; min-height: 21.0px"><span class="s1"><b></b></span><br></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">  </span>reader.readAsArrayBuffer(e.target.files[0]);</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b>});</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000; min-height: 21.0px"><span class="s1"><b></b></span><br></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b>&lt;/script&gt;</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000; min-height: 21.0px"><span class="s1"><b></b></span><br></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b>&lt;/body&gt;</b></span></h2>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; text-align: center; font: 18.0px Arial; -webkit-text-stroke: #000000"><span class="s1"><b>&lt;/html&gt;</b></span></h2>
 </body>
 </html>
